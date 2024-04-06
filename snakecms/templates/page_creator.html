@@ -1,12 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page Creator</title>
-  </head>
-  <body>
-    <h1>Witaj w Page Creator!</h1>
-    <p>To jest prosty szablon.</p>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularz użytkownika</title>
+    <style>
+        label[title="Header"] {
+            font-weight: bold;
+            color: #333;
+            font-size: 32px;
+        }
+        label[title="Body"] {
+            font-weight: bold;
+            color: #333;
+            font-size: 32px;
+        }
+        label[title="Footer"] {
+            font-weight: bold;
+            color: #333;
+            font-size: 32px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        textarea, input[type="text"], input[type="email"], input[type="tel"], select {
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="color"]{
+            width: 100%;
+            border-width: 0px;
+        }
+      
+        #firstName, #lastName, #title {
+            font-size: 30px;
+        }
+        input[type="submit"] {
+            display: block; 
+            margin: 0 auto; 
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+    
+        .color-bar {
+            height: 20px;
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Formularz użytkownika</h2>
+    <form id="userForm">
+        <label title="Header">Nagłówek:</label>
+
+        <label for="title">Tytuł:</label>
+        <input type="text" id="title" name="title" required>
+
+        <label for="headColor">Kolor głowy:</label>
+        <input type="color" id="headColor" name="headColor" required>
+    
+
+        <label title="Body">Ciało:</label>
+
+        <label for="firstName">Imię:</label>
+        <input type="text" id="firstName" name="firstName" required>
+
+        <label for="lastName">Nazwisko:</label>
+        <input type="text" id="lastName" name="lastName" required>
+
+        <label for="bodyText">Tekst:</label>
+        <textarea id="bodyText" name="bodyText" required></textarea>
+
+        <label for="bodyColor">Kolor body:</label>
+        <input type="color" id="bodyColor" name="bodyColor" required>
+ 
+        <label title="Footer">Stopka:</label>
+
+        <label for="phone">Telefon:</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="footerColor">Kolor stopki:</label>
+        <input type="color" id="footerColor" name="footerColor" required>
+
+
+        <input type="submit" value="Wyślij">
+    </form>
+</div>
+
+<script>
+
+    document.getElementById("userForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        var title = document.getElementById("title").value;
+        var headColor = document.getElementById("headColor").value;
+        var firstName = document.getElementById("firstName").value;
+        var lastName = document.getElementById("lastName").value;
+        var bodyText = document.getElementById("bodyText").value;
+        var bodyColor = document.getElementById("bodyColor").value;
+        var phone = document.getElementById("phone").value;
+        var email = document.getElementById("email").value;
+        var footerColor = document.getElementById("footerColor").value;
+
+        console.log("Tytuł:", title);
+        console.log("Kolor głowy:", headColor);
+        console.log("Imię:", firstName);
+        console.log("Nazwisko:", lastName);
+        console.log("Tekst:", bodyText);
+        console.log("Kolor body:", bodyColor);
+        console.log("Telefon:", phone);
+        console.log("Email:", email);
+        console.log("Kolor stopki:", footerColor);
+    });
+</script>
+
+</body>
 </html>
