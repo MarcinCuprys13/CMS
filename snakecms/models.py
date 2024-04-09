@@ -1,3 +1,19 @@
+from django.contrib.auth.models import User
 from django.db import models
 
-# Create your models here.
+
+class Profile(models.Model):
+    title = models.CharField(max_length=100)
+    first_name = models.CharField(max_length=50)
+    second_name = models.CharField(max_length=50)
+    head_color = models.CharField(max_length=50)
+    body_color = models.CharField(max_length=50)
+    footer_color = models.CharField(max_length=50)
+    phone = models.CharField(max_length=20)
+    email = models.EmailField(max_length=254)
+    city = models.CharField(max_length=50)
+    country = models.CharField(max_length=50)
+    description = models.CharField(max_length=50)
+    user_photo = models.ImageField(upload_to='user_photos/', blank=True, null=True)
+    website_photo = models.ImageField(upload_to='website_photos/', blank=True, null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
