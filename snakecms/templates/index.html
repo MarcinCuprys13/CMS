@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moje Portfolio</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Dodatkowe style dla dopasowania do wybranych kolorów */
+    /* Możesz zmienić je według potrzeb */
+    body {
+      background-color: #f8f9fa; /* Kolor tła */
+      font-family: Arial, sans-serif;
+    }
+    .header {
+      background-color: #007bff; /* Kolor nagłówka */
+      color: #fff;
+      padding: 40px 0;
+      text-align: center;
+    }
+    .portfolio-item {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 20px;
+      margin-bottom: 30px;
+      background-color: #fff; /* Kolor tła dla elementów portfolio */
+    }
+    .portfolio-item img {
+      max-width: 100%;
+      border-radius: 5px;
+    }
+    .person-info {
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+    .person-info img {
+      border-radius: 50%;
+      width: 200px;
+      height: 200px;
+      margin-bottom: 20px;
+    }
+    .footer {
+      background-color: #007bff; /* Kolor stopki */
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>Moje Portfolio</h1>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12" id="person-info-section">
+        <div class="person-info">
+          <img src="https://via.placeholder.com/200" alt="Zdjęcie osoby" class="img-fluid rounded-circle" id="person-image">
+          <h2 id="person-name">Imię Nazwisko</h2>
+          <p class="person-contact" id="person-phone">kom: 500-100-423</p>
+          <p class="person-contact" id="person-email">adres@email.com</p>
+          <p id="person-description">Opis osoby - osiągnięcia i zainteresowania</p>
+        </div>
+      </div>
+      <div class="col-md-12" id="portfolio-item-1">
+        <div class="portfolio-item">
+          <img src="https://via.placeholder.com/300" alt="Projekt 1" id="project-1-image">
+          <h2 id="project-1-title">Projekt 1</h2>
+          <p id="project-1-description">Opis projektu 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel odio neque. Sed auctor, dui nec gravida efficitur.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2024 Moje Portfolio</p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
