@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Formularz użytkownika</title>
-    <style>
+{% extends "base.html" %}
+
+{% block content %}
+<style>
       label[title="Header"] {
         font-weight: bold;
         color: #333;
@@ -82,80 +79,52 @@
         margin-bottom: 10px;
       }
     </style>
-  </head>
-  <body>
-    <div class="container">
-      <h2>Formularz użytkownika</h2>
-      <form
-        method="post"
-        action="{% url 'page-creator' %}"
-        enctype="multipart/form-data"
-      >
+<div class="container">
+    <h2>Edytuj profil użytkownika</h2>
+    <form method="post" action="" enctype="multipart/form-data">
         {% csrf_token %}
+        
         <label for="title">Tytuł:</label>
-        <input type="text" id="title" name="title" required />
-
+        <input type="text" id="title" name="title" value="{{ profile.title }}" required />
+        
         <label for="firstName">Imię:</label>
-        <input type="text" id="firstName" name="firstName" required />
-
+        <input type="text" id="firstName" name="first_name" value="{{ profile.first_name }}" required />
+        
         <label for="lastName">Nazwisko:</label>
-        <input type="text" id="lastName" name="lastName" required />
-
+        <input type="text" id="lastName" name="last_name" value="{{ profile.last_name }}" required />
+        
         <label for="headColor">Kolor głowy:</label>
-        <input type="color" id="headColor" name="headColor" required />
-
+        <input type="color" id="headColor" name="head_color" value="{{ profile.head_color }}" required />
+        
         <label for="bodyText">Tekst:</label>
-        <textarea id="bodyText" name="bodyText" required></textarea>
-
+        <textarea id="bodyText" name="body_text" required>{{ profile.body_text }}</textarea>
+        
         <label for="bodyColor">Kolor ciała:</label>
-        <input type="color" id="bodyColor" name="bodyColor" required />
-
+        <input type="color" id="bodyColor" name="body_color" value="{{ profile.body_color }}" required />
+        
         <label for="footerColor">Kolor stopki:</label>
-        <input type="color" id="footerColor" name="footerColor" required />
-
+        <input type="color" id="footerColor" name="footer_color" value="{{ profile.footer_color }}" required />
+        
         <label for="phone">Telefon:</label>
-        <input type="tel" id="phone" name="phone" required />
-
+        <input type="tel" id="phone" name="phone" value="{{ profile.phone }}" required />
+        
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required />
-
-
+        <input type="email" id="email" name="email" value="{{ profile.email }}" required />
+        
         <label for="user_photo">Zdjęcie użytkownika:</label>
+        {% if profile.user_photo %}
+            <img src="{{ profile.user_photo.url }}" alt="User Photo" style="max-width: 300px; height: auto;">
+        {% endif %}
         <input type="file" id="user_photo" name="user_photo" />
-
+        
         <label for="website_photo">Zdjęcie strony:</label>
+        {% if profile.website_photo %}
+            <img src="{{ profile.website_photo.url }}" alt="Website Photo" style="max-width: 300px; height: auto;">
+        {% endif %}
         <input type="file" id="website_photo" name="website_photo" />
 
-        <input type="submit" value="Wyślij" />
-      </form>
-    </div>
+        <input type="submit" value="Zapisz zmiany" />
+    </form>
+</div>
+{% endblock %}
 
-    <!-- <script>
-      document
-        .getElementById("userForm")
-        .addEventListener("submit", function (event) {
-          event.preventDefault();
-
-          var title = document.getElementById("title").value;
-          var headColor = document.getElementById("headColor").value;
-          var firstName = document.getElementById("firstName").value;
-          var lastName = document.getElementById("lastName").value;
-          var bodyText = document.getElementById("bodyText").value;
-          var bodyColor = document.getElementById("bodyColor").value;
-          var phone = document.getElementById("phone").value;
-          var email = document.getElementById("email").value;
-          var footerColor = document.getElementById("footerColor").value;
-
-          console.log("Tytuł:", title);
-          console.log("Kolor głowy:", headColor);
-          console.log("Imię:", firstName);
-          console.log("Nazwisko:", lastName);
-          console.log("Tekst:", bodyText);
-          console.log("Kolor body:", bodyColor);
-          console.log("Telefon:", phone);
-          console.log("Email:", email);
-          console.log("Kolor stopki:", footerColor);
-        });
-    </script> -->
-  </body>
-</html>

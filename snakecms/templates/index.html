@@ -6,8 +6,6 @@
   <title id="title">Moje Portfolio</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
-    /* Dodatkowe style dla dopasowania do wybranych kolorów */
-    /* Możesz zmienić je według potrzeb */
     body {
       background-color: #f8f9fa; /* Kolor tła */
       font-family: Arial, sans-serif;
@@ -57,18 +55,26 @@
     <div class="row">
       <div class="col-md-12" id="person_info_section">
         <div class="person-info">
-          <img src="https://via.placeholder.com/200" alt="Zdjęcie osoby" class="img-fluid rounded-circle" id="person_image">
-          <h2 id="person_name">Imię Nazwisko</h2>
-          <p class="person-contact" id="person_phone">kom: 500-100-423</p>
-          <p class="person-contact" id="person_email">adres@email.com</p>
-          <p id="person_description">Opis osoby - osiągnięcia i zainteresowania</p>
+          {% if profile.user_photo %}
+            <img src="{{ profile.user_photo.url }}" alt="Zdjęcie osoby" class="img-fluid rounded-circle" id="person_image">
+          {% else %}
+            <img src="https://via.placeholder.com/200" alt="Zdjęcie osoby" class="img-fluid rounded-circle" id="person_image">
+          {% endif %}
+          <h2 id="person_name">{{ profile.first_name }} {{ profile.last_name }}</h2>
+          <p class="person-contact" id="person_phone">{{ profile.phone }}</p>
+          <p class="person-contact" id="person_email">{{ profile.email }}</p>
+          <p id="person_description">{{ profile.body_text }}</p>
         </div>
       </div>
       <div class="col-md-12" id="portfolio_item">
         <div class="portfolio-item">
-          <img src="https://via.placeholder.com/300" alt="Projekt 1" id="project_image">
-          <h2 id="project_title">Projekt 1</h2>
-          <p id="project_description">Opis projektu 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel odio neque. Sed auctor, dui nec gravida efficitur.</p>
+          {% if profile.website_photo %}
+            <img src="{{ profile.website_photo.url }}" alt="Projekt 1" id="project_image">
+          {% else %}
+            <img src="https://via.placeholder.com/300" alt="Projekt 1" id="project_image">
+          {% endif %}
+          <h2 id="project_title">{{ profile.title }}</h2>
+          <p id="project_description">{{ profile.body_text }}</p>
         </div>
       </div>
     </div>
@@ -82,4 +88,3 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-</html>
