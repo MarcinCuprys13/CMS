@@ -1,4 +1,4 @@
-## CMS Project using Django framework
+# CMS Project using Django framework
 Welcome to CMS portfolio creator!
 
 ## Features include
