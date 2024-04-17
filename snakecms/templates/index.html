@@ -3,88 +3,137 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title id="title">Moje Portfolio</title>
+  <title id="title">{{profile.title}}</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
-    body {
-      background-color: #f8f9fa; /* Kolor tła */
-      font-family: Arial, sans-serif;
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=Ubuntu:wght@300;400;500;700&display=swap');
+    
+ 
+
+    a{
+        text-decoration: none;
     }
-    .header {
-      background-color: #007bff; /* Kolor nagłówka */
-      color: #fff;
-      padding: 40px 0;
-      text-align: center;
+
+    body{
+        font-family: 'Poppins', sans-serif;
+        background-color: #18181B;
     }
-    .portfolio-item {
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      padding: 20px;
-      margin-bottom: 30px;
-      background-color: #fff; /* Kolor tła dla elementów portfolio */
-    }
-    .portfolio-item img {
-      max-width: 100%;
-      border-radius: 5px;
-    }
-    .person-info {
-      text-align: center;
-      margin-top: 30px;
-      margin-bottom: 30px;
-    }
-    .person-info img {
+
+    .image img{
       border-radius: 50%;
-      width: 200px;
-      height: 200px;
-      margin-bottom: 20px;
+      width: 100%;
+      display: flex;
+      position: relative;
     }
-    .footer {
-      background-color: #007bff; /* Kolor stopki */
-      color: #fff;
-      padding: 20px 0;
-      text-align: center;
+
+    .container{
+        max-width: 1200px;
+        margin: auto;
+        padding: 5rem 2rem;
+    }
+
+    .blur{
+        position: absolute;
+        box-shadow: 0 0 1000px 50px #1d4ed8;
+        z-index: -100;
+    }
+
+    header h2{
+        color: #fff;
+        margin-bottom: 1rem;
+        font-size: 3rem;
+        font-weight: 700;
+        line-height: 4rem;
+        position: fixed;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    section{
+        position: relative;
+        padding-top: 2rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+        gap: 2rem;
+    }
+
+    section .content h4{
+        margin-bottom: 1rem;
+        color: #1a388b;
+        font-size: 1.25rem;
+        font-weight: 600;
+    }
+
+    section .content h1{
+        color: #fff;
+        margin-bottom: 1rem;
+        font-size: 3rem;
+        font-weight: 700;
+        line-height: 4rem;
+    }
+
+    section .content h1 span{
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke: 1px #fff;
+    }
+
+    section .content p{
+        margin-bottom: 2rem;
+        color: #ccc;
+    }
+
+    footer{
+        position: relative;
+        display: grid;
+        grid-template-columns: 400px repeat(3, 1fr);
+        gap: 2rem;
+    }
+
+    .copyright{
+        max-width: 1200px;
+        margin: auto;
+        padding: 3rem 3rem 3rem 3rem;
+        color: #fff;
+        font-size: 0.8rem;
+        position: fixed;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
   </style>
 </head>
 <body>
-  <header class="header">
-    <h1 id="title">Moje Portfolio</h1>
+  <header class="container">
+    <div class="content">
+      <h2>{{profile.title}}</h2>
+    </div>
   </header>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12" id="person_info_section">
-        <div class="person-info">
-          {% if profile.user_photo %}
-            <img src="{{ profile.user_photo.url }}" alt="Zdjęcie osoby" class="img-fluid rounded-circle" id="person_image">
-          {% else %}
-            <img src="https://via.placeholder.com/200" alt="Zdjęcie osoby" class="img-fluid rounded-circle" id="person_image">
-          {% endif %}
-          <h2 id="person_name">{{ profile.first_name }} {{ profile.last_name }}</h2>
-          <p class="person-contact" id="person_phone">{{ profile.phone }}</p>
-          <p class="person-contact" id="person_email">{{ profile.email }}</p>
-          <p id="person_description">{{ profile.body_text }}</p>
-        </div>
-      </div>
-      <div class="col-md-12" id="portfolio_item">
-        <div class="portfolio-item">
-          {% if profile.website_photo %}
-            <img src="{{ profile.website_photo.url }}" alt="Projekt 1" id="project_image">
-          {% else %}
-            <img src="https://via.placeholder.com/300" alt="Projekt 1" id="project_image">
-          {% endif %}
-          <h2 id="project_title">{{ profile.title }}</h2>
-          <p id="project_description">{{ profile.body_text }}</p>
-        </div>
+
+  <section class="container">
+    <div class="content" id="person_info_section">
+        <span class="blur"></span>
+        <span class="blur"></span>
+        <H1 id="person_name">Hi, I'm <span>{{ profile.first_name }} {{ profile.last_name }}</span></H1>
+        <h4 class="person-contact" id="person_phone">Phone number:  {{ profile.phone }}</h4>
+        <h4 class="person-contact" id="person_email">E-mail adress:  {{ profile.email }}</h4>
+        <p id="person_description">{{ profile.body_text }}</p>
+    </div>
+    <div class="portfolio-item" id="portfolio_item">
+      <div class="image">
+        {% if profile.user_photo %}
+          <img src="https://via.placeholder.com/1000" alt="Zdjęcie osoby" class="img-fluid rounded-circle" id="person_image">
+        {% else %}
+          <img src="https://via.placeholder.com/1000" alt="Zdjęcie osoby" class="img-fluid rounded-circle" id="person_image">
+        {% endif %}
       </div>
     </div>
-  </div>
+  </section>
 
-  <footer class="footer">
-    <p>&copy; 2024 Moje Portfolio</p>
+
+  <footer class="container">
+    <p class="copyright">&copy; 2024 Moje Portfolio</p>
   </footer>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
