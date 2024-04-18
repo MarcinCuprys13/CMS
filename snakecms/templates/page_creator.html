@@ -101,12 +101,15 @@
         <label for="lastName">Nazwisko:</label>
         <input type="text" id="lastName" name="lastName" required />
 
+        <label for="personText">Opis osoby:</label>
+        <textarea id="personText" name="personText" required></textarea>
+
         <label for="headColor">Kolor głowy:</label>
         <input type="color" id="headColor" name="headColor" required />
 
-        <label for="bodyText">Tekst:</label>
-        <textarea id="bodyText" name="bodyText" required></textarea>
-
+        <label for="projectText">Opis projektu:</label>
+        <textarea id="projectText" name="projectText" required></textarea>
+            
         <label for="bodyColor">Kolor ciała:</label>
         <input type="color" id="bodyColor" name="bodyColor" required />
 
@@ -130,32 +133,5 @@
       </form>
     </div>
 
-    <!-- <script>
-      document
-        .getElementById("userForm")
-        .addEventListener("submit", function (event) {
-          event.preventDefault();
-
-          var title = document.getElementById("title").value;
-          var headColor = document.getElementById("headColor").value;
-          var firstName = document.getElementById("firstName").value;
-          var lastName = document.getElementById("lastName").value;
-          var bodyText = document.getElementById("bodyText").value;
-          var bodyColor = document.getElementById("bodyColor").value;
-          var phone = document.getElementById("phone").value;
-          var email = document.getElementById("email").value;
-          var footerColor = document.getElementById("footerColor").value;
-
-          console.log("Tytuł:", title);
-          console.log("Kolor głowy:", headColor);
-          console.log("Imię:", firstName);
-          console.log("Nazwisko:", lastName);
-          console.log("Tekst:", bodyText);
-          console.log("Kolor body:", bodyColor);
-          console.log("Telefon:", phone);
-          console.log("Email:", email);
-          console.log("Kolor stopki:", footerColor);
-        });
-    </script> -->
   </body>
 </html>
