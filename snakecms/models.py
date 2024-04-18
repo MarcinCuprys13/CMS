@@ -31,4 +31,3 @@ class Profile(models.Model):
     user_photo = models.ImageField(upload_to='user_photos/', blank=True, null=True)  
     website_photo = models.ImageField(upload_to='website_photos/', blank=True, null=True)  
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-
