@@ -64,10 +64,9 @@ class ProfileUpdateView(UpdateView):
               'first_name', 
               'last_name', 
               'head_color', 
-              'person_text', 
+              'body_text', 
               'body_color', 
-              'footer_color',
-              'project_text',
+              'footer_color', 
               'phone', 
               'email', 
               'user_photo', 
@@ -78,4 +77,3 @@ class ProfileUpdateView(UpdateView):
 
     def get_queryset(self):
         return self.model.objects.filter(user=self.request.user)
-
