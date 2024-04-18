@@ -16,9 +16,10 @@ def page_creator(request):
         first_name = request.POST.get('firstName')
         last_name = request.POST.get('lastName')
         head_color = request.POST.get('headColor')
-        body_text = request.POST.get('bodyText')
+        person_text = request.POST.get('personText')
         body_color = request.POST.get('bodyColor')
         footer_color = request.POST.get('footerColor')
+        project_text = request.POST.get('projectText')
         phone = request.POST.get('phone')
         email = request.POST.get('email')
         user_photo = request.FILES.get('user_photo')
@@ -29,8 +30,10 @@ def page_creator(request):
             first_name=first_name,
             last_name=last_name,
             head_color=head_color,
+            person_text=person_text,
             body_text=body_text,
             body_color=body_color,
+            project_text=project_text,
             footer_color=footer_color,
             phone=phone,
             email=email,
