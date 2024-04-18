@@ -70,7 +70,7 @@ class ProfileUpdateView(UpdateView):
               'person_text', 
               'body_color', 
               'footer_color',
-              'project_text",
+              'project_text',
               'phone', 
               'email', 
               'user_photo', 
