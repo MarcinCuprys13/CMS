@@ -15,7 +15,9 @@ def page_creator(request):
         title = request.POST.get('title')
         first_name = request.POST.get('firstName')
         last_name = request.POST.get('lastName')
+        person_text = request.POST.get("personText")
         head_color = request.POST.get('headColor')
+        project_text = request.POST.get("projectText")
         body_text = request.POST.get('bodyText')
         body_color = request.POST.get('bodyColor')
         footer_color = request.POST.get('footerColor')
@@ -28,7 +30,9 @@ def page_creator(request):
             title=title,
             first_name=first_name,
             last_name=last_name,
+            person_text=person_text,
             head_color=head_color,
+            project_text=project_text,
             body_text=body_text,
             body_color=body_color,
             footer_color=footer_color,
@@ -62,8 +66,10 @@ class ProfileUpdateView(UpdateView):
     model = Profile
     fields = ['title', 
               'first_name', 
-              'last_name', 
-              'head_color', 
+              'last_name',
+              'person_text',
+              'head_color',
+              'project_text',
               'body_text', 
               'body_color', 
               'footer_color', 

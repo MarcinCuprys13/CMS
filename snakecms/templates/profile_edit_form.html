@@ -83,43 +83,46 @@
     <h2>Edytuj profil użytkownika</h2>
     <form method="post" action="" enctype="multipart/form-data">
         {% csrf_token %}
-        
+
         <label for="title">Tytuł:</label>
         <input type="text" id="title" name="title" value="{{ profile.title }}" required />
-        
+
         <label for="firstName">Imię:</label>
         <input type="text" id="firstName" name="first_name" value="{{ profile.first_name }}" required />
-        
+
         <label for="lastName">Nazwisko:</label>
         <input type="text" id="lastName" name="last_name" value="{{ profile.last_name }}" required />
-        
+
+        <label for="personText">Opis osoby:</label>
+        <textarea id="personText" name="person_text" required>{{ profile.person_text }}</textarea>
+
         <label for="headColor">Kolor głowy:</label>
         <input type="color" id="headColor" name="head_color" value="{{ profile.head_color }}" required />
-        
-        <label for="bodyText">Tekst:</label>
-        <textarea id="bodyText" name="body_text" required>{{ profile.body_text }}</textarea>
-        
+
+        <label for="projectText">Opis projektu:</label>
+        <textarea id="projectText" name="project_text" required>{{ profile.project_text }}</textarea>
+
         <label for="bodyColor">Kolor ciała:</label>
         <input type="color" id="bodyColor" name="body_color" value="{{ profile.body_color }}" required />
-        
+
         <label for="footerColor">Kolor stopki:</label>
         <input type="color" id="footerColor" name="footer_color" value="{{ profile.footer_color }}" required />
-        
+
         <label for="phone">Telefon:</label>
         <input type="tel" id="phone" name="phone" value="{{ profile.phone }}" required />
-        
+
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" value="{{ profile.email }}" required />
-        
+
         <label for="user_photo">Zdjęcie użytkownika:</label>
         {% if profile.user_photo %}
-            <img src="{{ profile.user_photo.url }}" alt="User Photo" style="max-width: 300px; height: auto;">
+        <img src="{{ profile.user_photo.url }}" alt="User Photo" style="max-width: 300px; height: auto;">
         {% endif %}
         <input type="file" id="user_photo" name="user_photo" />
-        
+
         <label for="website_photo">Zdjęcie strony:</label>
         {% if profile.website_photo %}
-            <img src="{{ profile.website_photo.url }}" alt="Website Photo" style="max-width: 300px; height: auto;">
+        <img src="{{ profile.website_photo.url }}" alt="Website Photo" style="max-width: 300px; height: auto;">
         {% endif %}
         <input type="file" id="website_photo" name="website_photo" />
 

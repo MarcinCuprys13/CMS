@@ -21,9 +21,10 @@ from django.db import models
 class Profile(models.Model):
     title = models.CharField(max_length=100)
     first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50) 
+    last_name = models.CharField(max_length=50)
+    person_text = models.TextField() 
     head_color = models.CharField(max_length=7)  
-    body_text = models.TextField() 
+    project_text = models.TextField() 
     body_color = models.CharField(max_length=7)  
     footer_color = models.CharField(max_length=7)  
     phone = models.CharField(max_length=20)
