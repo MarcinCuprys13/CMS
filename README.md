@@ -17,9 +17,9 @@ Welcome to CMS portfolio creator!
 ```
 git clone https://github.com/MarcinCuprys13/CMS
 ```
--Download django using pip in terminal:
+-Download packages for web development and database interaction:
 ```
-pip install django
+pip3 install -r requirements.txt
 ```
 
 ## How to run
