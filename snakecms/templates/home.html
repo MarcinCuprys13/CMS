@@ -14,19 +14,14 @@
         border-radius: 5px;
         margin-left: 2.5%;
     }
-    .logout-link {
-        margin-left: 2.5%;
-    }
-    
     
 
-        .logout-link:hover, .login-link:hover, .edit-link:hover {
-            text-decoration:none;
+    .logout-link:hover, .login-link:hover, .edit-link:hover {
+            text-decoration: none;
             background-color: #007bff;
             color: #fff;
-        }
-
-
+    }
+        
 
     .table_edit{
         text-align:center;
@@ -35,12 +30,14 @@
     p {
         margin-left: 2.5%;
     }
+
     .content-container {
         height: 100vh;
         padding: 0;
         margin: 0 5%;
         background-color: #C0C0C0;
     }
+
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         margin: 0;
@@ -72,9 +69,9 @@
     }     
 
 
-        a.edit-link:hover {
+    a.edit-link:hover {
             text-decoration: none;
-        }
+    }
 
     th:not(:last-child),
     td:not(:last-child) {
@@ -85,15 +82,20 @@
         text-align: center;
         font-size: 3vw;
     }
+    .logout-div {
+        padding-top: 2%;
+    }
  
 </style>
 
 <body>
     <div class="content-container">
-
-        <a href="{% url 'logout' %}" class="logout-link">Log Out</a>
+        <div class="logout-div">
+            <a href="{% url 'logout' %}" class="logout-link">Log Out</a>
+        </div>
         <h2>Your Profiles</h2>
 
+        <div style="overflow-x: auto;">
         <table>
             <thead>
                 <tr>
@@ -116,8 +118,9 @@
                 {% endfor %}
             </tbody>
         </table>
+            </div>
         <div class="Add_new">
-            <a  href="" class="edit-link">Add Project</a>
+            <a  href="{% url 'page-creator' %}" class="edit-link">Add Project</a>
         </div>
         {% else %}
         <p>You are not logged in</p>
