@@ -134,7 +134,7 @@
     <div class="portfolio-item" id="portfolio_item">
       <div class="image">
         {% if profile.user_photo %}
-          <img src="https://via.placeholder.com/1000" alt="Zdjęcie osoby" class="img-fluid rounded-circle" id="person_image">
+          <img src="{{ profile.user_photo.url }}" alt="Zdjęcie osoby" class="img-fluid rounded-circle" id="person_image">
         {% else %}
           <img src="https://via.placeholder.com/1000" alt="Zdjęcie osoby" class="img-fluid rounded-circle" id="person_image">
         {% endif %}
@@ -144,7 +144,7 @@
       <div class="portfolio-item" id="portfolio_item">
         <div class="image2">
           {% if profile.website_photo %}
-            <img src="https://via.placeholder.com/300" alt="Zdjęcie projektu" class="img-fluid" id="project_image">
+            <img src="{{ profile.website_photo.url }}" alt="Projekt 1" id="project_image">
           {% else %}
             <img src="https://via.placeholder.com/300" alt="Zdjęcie osoby" class="img-fluid rounded-circle" id="project_image">
           {% endif %}
