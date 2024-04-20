@@ -35,22 +35,26 @@
         height: 100vh;
         padding: 0;
         margin: 0 5%;
-        background-color: #C0C0C0;
+        background-color: white;
     }
 
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         margin: 0;
         padding: 0;
-        background-color: #687485
+        background-color: #687485;
     }
 
     table {
-        background-color: #F5F5F5;
+        background-color: transparent;
         width: 95%;
         border-collapse: collapse;
         margin: 20px auto;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border: 2px solid ;
+    }
+    .table_div {
+       overflow-x: auto;
     }
 
     th, td {
@@ -95,7 +99,7 @@
         </div>
         <h2>Your Profiles</h2>
 
-        <div style="overflow-x: auto;">
+        <div class="table_div">
         <table>
             <thead>
                 <tr>
