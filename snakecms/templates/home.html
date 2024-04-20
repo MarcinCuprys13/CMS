@@ -2,9 +2,99 @@
 
 {% block content %}
     {% if user.is_authenticated %}
-        <p><a href="{% url 'logout' %}">Log Out</a></p>
+
+<style>
+    
+    .logout-link, .login-link, .edit-link {
+        text-decoration: none;
+        color: #007bff;
+        font-weight: bold;
+        border: 2px solid #007bff;
+        padding: 8px 16px;
+        border-radius: 5px;
+        margin-left: 2.5%;
+    }
+    .logout-link {
+        margin-left: 2.5%;
+    }
+    
+    
+
+        .logout-link:hover, .login-link:hover, .edit-link:hover {
+            text-decoration:none;
+            background-color: #007bff;
+            color: #fff;
+        }
+
+
+
+    .table_edit{
+        text-align:center;
+    }
+
+    p {
+        margin-left: 2.5%;
+    }
+    .content-container {
+        height: 100vh;
+        padding: 0;
+        margin: 0 5%;
+        background-color: #C0C0C0;
+    }
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #687485
+    }
+
+    table {
+        background-color: #F5F5F5;
+        width: 95%;
+        border-collapse: collapse;
+        margin: 20px auto;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        color: #333;
+        text-align: center;
+    }
+    .Add_new {
+        text-align: center;
+        margin-top: 20px;
+    }     
+
+
+        a.edit-link:hover {
+            text-decoration: none;
+        }
+
+    th:not(:last-child),
+    td:not(:last-child) {
+        border-right: 1px solid #ddd;
+    }
+
+    h2 {
+        text-align: center;
+        font-size: 3vw;
+    }
+ 
+</style>
+
+<body>
+    <div class="content-container">
+
+        <a href="{% url 'logout' %}" class="logout-link">Log Out</a>
         <h2>Your Profiles</h2>
-        <table border="1">
+
+        <table>
             <thead>
                 <tr>
                     <th>Title</th>
@@ -16,18 +106,23 @@
             </thead>
             <tbody>
                 {% for profile in user_profiles %}
-                    <tr>
-                        <td>{{ profile.title }}</td>
-                        <td>{{ profile.first_name }} {{ profile.last_name }}</td>
-                        <td>{{ profile.email }}</td>
-                        <td>{{ profile.phone }}</td>
-                        <td><a href="{% url 'profile-edit' pk=profile.pk %}">Edit</a></td>
-                    </tr>
+                <tr>
+                    <td>{{ profile.title }}</td>
+                    <td>{{ profile.first_name }} {{ profile.last_name }}</td>
+                    <td>{{ profile.email }}</td>
+                    <td>{{ profile.phone }}</td>
+                    <td class="table_edit"><a href="{% url 'profile-edit' pk=profile.pk %}" class="edit-link">Edit</a></td>
+                </tr>
                 {% endfor %}
             </tbody>
         </table>
-    {% else %}
+        <div class="Add_new">
+            <a  href="" class="edit-link">Add Project</a>
+        </div>
+        {% else %}
         <p>You are not logged in</p>
-        <a href="{% url 'login' %}">Log In</a>
-    {% endif %}
-{% endblock %}
+        <a href="{% url 'login' %}" class="login-link">Log In</a>
+        {% endif %}
+        {% endblock %}
+    </div>
+</body>
