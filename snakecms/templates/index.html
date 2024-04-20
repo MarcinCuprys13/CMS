@@ -16,12 +16,24 @@
 
     body{
         font-family: 'Poppins', sans-serif;
-        background-color: #18181B;
+        background-color: {{ profile.body_color}};
     }
 
     .image img{
       border-radius: 50%;
       width: 100%;
+      display: flex;
+      position: relative;
+    }
+
+    .image2 {
+      display: grid;
+      place-items: center; 
+    }
+
+    .image2 img{
+      border-radius: 10%;
+      width: 50%;
       display: flex;
       position: relative;
     }
@@ -34,12 +46,12 @@
 
     .blur{
         position: absolute;
-        box-shadow: 0 0 1000px 50px #1d4ed8;
+        box-shadow: 0 0 1000px 50px {{ profile.head_color }};
         z-index: -100;
     }
 
     header h2{
-        color: #fff;
+        color: {{ profile.footer_color}};
         margin-bottom: 1rem;
         font-size: 3rem;
         font-weight: 700;
@@ -60,13 +72,13 @@
 
     section .content h4{
         margin-bottom: 1rem;
-        color: #1a388b;
+        color: {{ profile.head_color }};
         font-size: 1.25rem;
         font-weight: 600;
     }
 
     section .content h1{
-        color: #fff;
+        color: {{ profile.footer_color}};
         margin-bottom: 1rem;
         font-size: 3rem;
         font-weight: 700;
@@ -75,12 +87,12 @@
 
     section .content h1 span{
         -webkit-text-fill-color: transparent;
-        -webkit-text-stroke: 1px #fff;
+        -webkit-text-stroke: 1px {{ profile.footer_color}};
     }
 
     section .content p{
         margin-bottom: 2rem;
-        color: #ccc;
+        color: {{ profile.footer_color}};
     }
 
     footer{
@@ -94,7 +106,7 @@
         max-width: 1200px;
         margin: auto;
         padding: 3rem 3rem 3rem 3rem;
-        color: #fff;
+        color: {{ profile.footer_color}};
         font-size: 0.8rem;
         position: fixed;
         left: 50%;
@@ -117,7 +129,7 @@
         <H1 id="person_name">Hi, I'm <span>{{ profile.first_name }} {{ profile.last_name }}</span></H1>
         <h4 class="person-contact" id="person_phone">Phone number:  {{ profile.phone }}</h4>
         <h4 class="person-contact" id="person_email">E-mail adress:  {{ profile.email }}</h4>
-        <p id="person_description">{{ profile.body_text }}</p>
+        <p id="person_description">{{ profile.person_text }}</p>
     </div>
     <div class="portfolio-item" id="portfolio_item">
       <div class="image">
@@ -127,6 +139,20 @@
           <img src="https://via.placeholder.com/1000" alt="Zdjęcie osoby" class="img-fluid rounded-circle" id="person_image">
         {% endif %}
       </div>
+    </div>
+    <div class="content" id="project_info_section">
+      <div class="portfolio-item" id="portfolio_item">
+        <div class="image2">
+          {% if profile.website_photo %}
+            <img src="https://via.placeholder.com/300" alt="Zdjęcie projektu" class="img-fluid" id="project_image">
+          {% else %}
+            <img src="https://via.placeholder.com/300" alt="Zdjęcie osoby" class="img-fluid rounded-circle" id="project_image">
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <div class="content" id="project_info_section">
+        <p id="person_description">{{ profile.project_text }}</p>
     </div>
   </section>
 
