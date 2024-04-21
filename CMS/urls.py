@@ -18,6 +18,8 @@ from django.contrib import admin
 from django.urls import path
 from snakecms.views import page_creator,page,my_view, ProfileUpdateView
 from django.urls import path, include
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path("", my_view, name="home"), 
@@ -27,4 +29,4 @@ urlpatterns = [
     path('page/<int:id>/', page, name='page'),
     path('profile/edit/<int:pk>/', ProfileUpdateView.as_view(), name='profile-edit'),
 
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
