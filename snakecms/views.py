@@ -3,11 +3,12 @@ from django.shortcuts import render, redirect,get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Profile
 from django.contrib.auth.models import User
-from django.http import HttpResponse
+from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render
 from .models import Profile
 from django.urls import reverse_lazy
 from django.views.generic.edit import UpdateView
+from django.contrib.auth import login
 
 @login_required(login_url='/accounts/login/') 
 def page_creator(request):
@@ -53,7 +54,16 @@ def my_view(request):
     else:
         return render(request, 'base.html')
 
-
+def my_register_view(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('home')
+    else:
+        form = UserCreationForm()
+    return render(request, 'register.html', {'form': form})
 
 def page(request, id):
     profile = get_object_or_404(Profile, pk=id)

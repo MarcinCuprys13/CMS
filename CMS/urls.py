@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from snakecms.views import page_creator,page,my_view, ProfileUpdateView
+from snakecms.views import page_creator,page,my_view,ProfileUpdateView,my_register_view
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
@@ -26,6 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("accounts/", include("django.contrib.auth.urls")),
     path('create-page/', page_creator, name='page-creator'),
+    path('accounts/register/', my_register_view, name='register'),
     path('page/<int:id>/', page, name='page'),
     path('profile/edit/<int:pk>/', ProfileUpdateView.as_view(), name='profile-edit'),
 
